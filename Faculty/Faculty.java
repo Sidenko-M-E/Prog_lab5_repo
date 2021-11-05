@@ -17,6 +17,8 @@ public class Faculty{
 	public boolean setFacultyName(String bufString)
 	{
 		facultyName = bufString;
+
+		return (false);
 	}
 
 	public boolean setQuantityOfStudents(int buf)
@@ -91,7 +93,7 @@ public class Faculty{
 		return (true);
 		else
 		{
-			QuantityOfDisciplines = buf;
+			quantityOfDisciplines = buf;
 			return (false);
 		}
 	}
@@ -115,7 +117,7 @@ public class Faculty{
 			return (true);
 		else
 		{
-			qiantityOfTeachers = allQuantity;
+			quantityOfTeachers = allQuantity;
 			quantityOfCandidates = candidatesQuantity;
 			quantityOfDoctors = doctorsQuantity;
 			return (false);
@@ -180,7 +182,71 @@ public class Faculty{
 		return ((double) quantityOfStudents) / ((double) quantityOfTeachers);
 	}
 
-   public boolean Init(String buf_FacultyName, int stud_quan, int bach_quan, int mast_quan, int teac_quan, int cand_quan, int doct_quan, int disc_quan){}
-   public boolean Read(){}
-   public void Display(){}
+   public boolean Init(String bufFacultyName, int studentsQuantity, int bachelorsQuantity, int mastersQuantity, int teachersQuantity, int candidatesQuantity, int doctorsQuanity, int discpilinesQuantity)
+   {
+		//создаём объект класса faculty для проверки формата входных данных
+		Faculty check = new Faculty();
+	
+		//проверка на формат ввода 
+		if (check.setFacultyName(bufFacultyName) || check.setQuantityOfStudents(studentsQuantity) ||
+			check.setQuantityOfBachelors(bachelorsQuantity) || check.setQuantityOfMasters(mastersQuantity) ||
+			check.setQuantityOfTeachers(teachersQuantity) || check.setQuantityOfCandidates(candidatesQuantity) ||
+			check.setQuantityOfDoctors(doctorsQuanity) || check.setQuantityOfDisciplines(discpilinesQuantity))
+			return (true);
+		else
+		{
+			setFacultyName(bufFacultyName);
+			setQuantityOfStudents(studentsQuantity);
+			setQuantityOfBachelors(bachelorsQuantity);
+			setQuantityOfMasters(mastersQuantity);
+			setQuantityOfTeachers(teachersQuantity);
+			setQuantityOfCandidates(candidatesQuantity);
+			setQuantityOfDoctors(doctorsQuanity);
+			setQuantityOfDisciplines(discpilinesQuantity);
+			return (false);
+		}
+   }
+
+   public boolean read()
+   {
+		System.out.printf("I want to break free...");
+		return (false);
+   }
+
+   public void display()
+   {
+	System.out.printf("faculty name: %s\n", facultyName);
+	System.out.printf("quantity of students: %d\n", quantityOfStudents);
+	System.out.printf("quantity of bachelors: %d\n", quantityOfBachelors);
+	System.out.printf("quantity of masters: %d\n\n", quantityOfMasters);
+
+	System.out.printf("quantity of teachers: %d\n", quantityOfTeachers);
+	System.out.printf("quantity of candidates: %d\n", quantityOfCandidates);
+	System.out.printf("quantity of doctors: %d\n\n", quantityOfDoctors);
+
+	System.out.printf("quantity of disciplines: %d\n", quantityOfDisciplines);
+   }
+
+   public static void main(String[] args)
+   {
+		//Создание нового объекта из готовых данных
+		System.out.printf("-------Init method-------\n");
+		Faculty my_faculty = new Faculty();
+		if (my_faculty.Init("FoIT", 180, 145, 35, 40, 20, 5, 70))
+			System.out.printf("error\n");
+		else
+			my_faculty.display();
+
+		//Ввод полей объекта с помощью методов
+		System.out.printf("\n------Shortcut-Set methods-------\n");
+		my_faculty.setStudentsInfo(300, 270, 30);
+		my_faculty.setTeachersInfo(40, 33, 7);
+		my_faculty.display();
+
+		//Метод вывода содержимого объекта класса в консоль
+		System.out.printf("\n----processing by functions----\n");
+		System.out.printf("Procent of masters on faculty: %.2f\n", my_faculty.getProcentOfMasters());
+		System.out.printf("Procent of doctors on faculty: %.2f\n", my_faculty.getProcentOfDoctors());
+		System.out.printf("Students to teachers quantity: %.2f\n", my_faculty.getStudToTeachRatio());
+   }
 }
