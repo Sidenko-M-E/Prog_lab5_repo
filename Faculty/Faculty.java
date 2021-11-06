@@ -220,9 +220,131 @@ public class Faculty{
 
    public boolean read()
    {
-		System.out.printf("I want to break free...");
-		return (false);
-   }
+		//создаём объект класса faculty для проверки формата входных данных
+		Faculty check = new Faculty();
+
+		//создаём буферную строку для проверки формата входных данных
+		String bufString;
+
+		System.out.printf("Enter faculty name:\n");
+		Scanner scanner = new Scanner(System.in);
+		if (!scanner.hasNextLine())
+			return (true);
+		else
+		{
+			bufString = scanner.nextLine();
+			if (check.setFacultyName(bufString))
+				return (true);
+			else 
+			{
+				//буферный переменная типа int 
+				//для проверки формата входных данных 
+				int bufInt;
+
+				//проверка на формат входных данных
+				System.out.printf("Enter quantity of students:\n");
+				if (!scanner.hasNextInt())
+					return (true);
+				else
+				{
+					bufInt = scanner.nextInt();
+					//попытка записи в поле объекта
+					if (check.setQuantityOfStudents(bufInt))
+						return (true);
+					else
+					{
+						//проверка на формат входных данных
+						System.out.printf("Enter quantity of bachelors:\n");
+						if (!scanner.hasNextInt())
+							return (true);
+						else
+						{
+							bufInt = scanner.nextInt();
+							if (check.setQuantityOfBachelors(bufInt))
+								return (true);
+							else
+							{
+								//проверка на формат входных данных
+								System.out.printf("Enter quantity of masters:\n");
+								if (!scanner.hasNextInt())
+									return (true);
+								else
+								{
+									bufInt = scanner.nextInt();
+									if (check.setQuantityOfMasters(bufInt))
+										return (true);
+									else
+									{
+										//проверка на формат входных данных
+										System.out.printf("Enter quantity of teachers:\n");
+										if (!scanner.hasNextInt())
+											return (true);
+										else
+										{
+											bufInt = scanner.nextInt();
+											if (check.setQuantityOfTeachers(bufInt))
+												return (true);
+											else
+											{
+												//проверка на формат входных данных
+												System.out.printf("Enter quantity of candidates:\n");
+												if (!scanner.hasNextInt())
+													return (true);
+												else
+												{
+													bufInt = scanner.nextInt();
+													if (check.setQuantityOfCandidates(bufInt))
+														return (true);
+													else
+													{
+														//проверка на формат входных данных
+														System.out.printf("Enter quantity of doctors:\n");
+														if (!scanner.hasNextInt())
+															return (true);
+														else
+														{
+															bufInt = scanner.nextInt();
+															if (check.setQuantityOfDoctors(bufInt))
+																return (true);
+															else
+															{
+																//проверка на формат входных данных
+																System.out.printf("Enter quantity of disciplines:\n");
+																if (!scanner.hasNextInt())
+																	return (true);
+																else
+																{
+																	bufInt = scanner.nextInt();
+																	if (check.setQuantityOfDisciplines(bufInt))
+																		return (true);
+																	else
+																	{
+																		setFacultyName(check.getFacultyName());
+																		setQuantityOfStudents(check.getQuantityOfStudents());
+																		setQuantityOfBachelors(check.getQuantityOfBachelors());
+																		setQuantityOfMasters(check.getQuantityOfMasters());
+																		setQuantityOfTeachers(check.getQuantityOfTeachers());
+																		setQuantityOfCandidates(check.getQuantityOfTeachers());
+																		setQuantityOfDoctors(check.getQuantityOfDoctors());
+																		setQuantityOfDisciplines(check.getQuantityOfDisciplines());
+																		return (false);
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 
    public void display()
    {
@@ -243,10 +365,10 @@ public class Faculty{
 		//Создание нового объекта из готовых данных
 		System.out.printf("-------Init method-------\n");
 		Faculty my_faculty = new Faculty();
-		//if (my_faculty.Init("FoIT", 180, 145, 35, 40, 20, 5, 70))
-		//	System.out.printf("error\n");
-		//else
-		//	my_faculty.display();
+		if (my_faculty.Init("FoIT", 180, 145, 35, 40, 20, 5, 70))
+			System.out.printf("error\n");
+		else
+			my_faculty.display();
 
 		//Ввод полей объекта с помощью методов
 		System.out.printf("\n------Shortcut-Set methods-------\n");
@@ -254,15 +376,19 @@ public class Faculty{
 		my_faculty.setTeachersInfo(40, 33, 7);
 		if (my_faculty.setFacultyName("Fo****IT"))
 			System.out.printf("Error\n");
-		
-		my_faculty.display();
-		my_faculty.setFacultyName("FoHS");
-		my_faculty.display();
+		else
+			my_faculty.display();
+
+		System.out.printf("\n------read method-------\n");
+		if(my_faculty.read())
+			System.out.printf("error\n");
+		else
+			my_faculty.display();
 
 		//Метод вывода содержимого объекта класса в консоль
-		//System.out.printf("\n----processing by functions----\n");
-		//System.out.printf("Procent of masters on faculty: %.2f\n", my_faculty.getProcentOfMasters());
-		//System.out.printf("Procent of doctors on faculty: %.2f\n", my_faculty.getProcentOfDoctors());
-		//System.out.printf("Students to teachers quantity: %.2f\n", my_faculty.getStudToTeachRatio());
+		System.out.printf("\n----processing by functions----\n");
+		System.out.printf("Procent of masters on faculty: %.2f\n", my_faculty.getProcentOfMasters());
+		System.out.printf("Procent of doctors on faculty: %.2f\n", my_faculty.getProcentOfDoctors());
+		System.out.printf("Students to teachers quantity: %.2f\n", my_faculty.getStudToTeachRatio());
    }
 }
