@@ -16,8 +16,19 @@ public class Faculty{
 	//Set methods
 	public boolean setFacultyName(String bufString)
 	{
-		facultyName = bufString;
+		if (bufString.isEmpty()) {
+			return (true);
+		}
 
+		String invalidSymbStr = "!@#$%^&*()_+1234567890-=\"№;:?*,./'][{}<>~` ";
+		char[] invalidSymbols = invalidSymbStr.toCharArray();
+		for (char symb : invalidSymbols) 
+		{
+			if(bufString.indexOf(symb) != (-1))
+				return (true);
+		}
+
+		facultyName = bufString;
 		return (false);
 	}
 
@@ -232,21 +243,26 @@ public class Faculty{
 		//Создание нового объекта из готовых данных
 		System.out.printf("-------Init method-------\n");
 		Faculty my_faculty = new Faculty();
-		if (my_faculty.Init("FoIT", 180, 145, 35, 40, 20, 5, 70))
-			System.out.printf("error\n");
-		else
-			my_faculty.display();
+		//if (my_faculty.Init("FoIT", 180, 145, 35, 40, 20, 5, 70))
+		//	System.out.printf("error\n");
+		//else
+		//	my_faculty.display();
 
 		//Ввод полей объекта с помощью методов
 		System.out.printf("\n------Shortcut-Set methods-------\n");
 		my_faculty.setStudentsInfo(300, 270, 30);
 		my_faculty.setTeachersInfo(40, 33, 7);
+		if (my_faculty.setFacultyName("Fo****IT"))
+			System.out.printf("Error\n");
+		
+		my_faculty.display();
+		my_faculty.setFacultyName("FoHS");
 		my_faculty.display();
 
 		//Метод вывода содержимого объекта класса в консоль
-		System.out.printf("\n----processing by functions----\n");
-		System.out.printf("Procent of masters on faculty: %.2f\n", my_faculty.getProcentOfMasters());
-		System.out.printf("Procent of doctors on faculty: %.2f\n", my_faculty.getProcentOfDoctors());
-		System.out.printf("Students to teachers quantity: %.2f\n", my_faculty.getStudToTeachRatio());
+		//System.out.printf("\n----processing by functions----\n");
+		//System.out.printf("Procent of masters on faculty: %.2f\n", my_faculty.getProcentOfMasters());
+		//System.out.printf("Procent of doctors on faculty: %.2f\n", my_faculty.getProcentOfDoctors());
+		//System.out.printf("Students to teachers quantity: %.2f\n", my_faculty.getStudToTeachRatio());
    }
 }
