@@ -28,7 +28,7 @@ public class Faculty{
 				return (true);
 		}
 
-		facultyName = bufString;
+		facultyName = facultyName.copyValueOf(bufString.toCharArray());
 		return (false);
 	}
 
@@ -139,7 +139,8 @@ public class Faculty{
 	//Get methods
 	public String getFacultyName()
 	{
-		return facultyName;
+		String outputString = String.copyValueOf(facultyName.toCharArray());
+		return (outputString);
 	}
 
 	public int getQuantityOfStudents()
@@ -206,14 +207,14 @@ public class Faculty{
 			return (true);
 		else
 		{
-			setFacultyName(bufFacultyName);
-			setQuantityOfStudents(studentsQuantity);
-			setQuantityOfBachelors(bachelorsQuantity);
-			setQuantityOfMasters(mastersQuantity);
-			setQuantityOfTeachers(teachersQuantity);
-			setQuantityOfCandidates(candidatesQuantity);
-			setQuantityOfDoctors(doctorsQuanity);
-			setQuantityOfDisciplines(discpilinesQuantity);
+			this.setFacultyName(bufFacultyName);
+			this.setQuantityOfStudents(studentsQuantity);
+			this.setQuantityOfBachelors(bachelorsQuantity);
+			this.setQuantityOfMasters(mastersQuantity);
+			this.setQuantityOfTeachers(teachersQuantity);
+			this.setQuantityOfCandidates(candidatesQuantity);
+			this.setQuantityOfDoctors(doctorsQuanity);
+			this.setQuantityOfDisciplines(discpilinesQuantity);
 			return (false);
 		}
    }
@@ -364,31 +365,31 @@ public class Faculty{
    {
 		//Создание нового объекта из готовых данных
 		System.out.printf("-------Init method-------\n");
-		Faculty my_faculty = new Faculty();
-		if (my_faculty.Init("FoIT", 180, 145, 35, 40, 20, 5, 70))
+		Faculty myFaculty = new Faculty();
+		if (myFaculty.Init("FoIT", 180, 145, 35, 40, 20, 5, 70))
 			System.out.printf("error\n");
 		else
-			my_faculty.display();
+			myFaculty.display();
 
 		//Ввод полей объекта с помощью методов
 		System.out.printf("\n------Shortcut-Set methods-------\n");
-		my_faculty.setStudentsInfo(300, 270, 30);
-		my_faculty.setTeachersInfo(40, 33, 7);
-		if (my_faculty.setFacultyName("Fo****IT"))
+		myFaculty.setStudentsInfo(300, 270, 30);
+		myFaculty.setTeachersInfo(40, 33, 7);
+		if (myFaculty.setFacultyName("Fo****IT"))
 			System.out.printf("Error\n");
 		else
-			my_faculty.display();
+			myFaculty.display();
 
 		System.out.printf("\n------read method-------\n");
-		if(my_faculty.read())
+		if(myFaculty.read())
 			System.out.printf("error\n");
 		else
-			my_faculty.display();
+			myFaculty.display();
 
 		//Метод вывода содержимого объекта класса в консоль
 		System.out.printf("\n----processing by functions----\n");
-		System.out.printf("Procent of masters on faculty: %.2f\n", my_faculty.getProcentOfMasters());
-		System.out.printf("Procent of doctors on faculty: %.2f\n", my_faculty.getProcentOfDoctors());
-		System.out.printf("Students to teachers quantity: %.2f\n", my_faculty.getStudToTeachRatio());
+		System.out.printf("Procent of masters on faculty: %.2f\n", myFaculty.getProcentOfMasters());
+		System.out.printf("Procent of doctors on faculty: %.2f\n", myFaculty.getProcentOfDoctors());
+		System.out.printf("Students to teachers quantity: %.2f\n", myFaculty.getStudToTeachRatio());
    }
 }
