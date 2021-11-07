@@ -363,16 +363,15 @@ public class Faculty{
 
    public static void main(String[] args)
    {
-		//Создание нового объекта из готовых данных
-		System.out.printf("-------Init method-------\n");
+		System.out.printf("-------init method-------\n");
 		Faculty myFaculty = new Faculty();
 		if (myFaculty.Init("FoIT", 180, 145, 35, 40, 20, 5, 70))
 			System.out.printf("error\n");
 		else
 			myFaculty.display();
 
-		//Ввод полей объекта с помощью методов
-		System.out.printf("\n------Shortcut-Set methods-------\n");
+
+		System.out.printf("\n------Shortcut-set methods-------\n");
 		myFaculty.setStudentsInfo(300, 270, 30);
 		myFaculty.setTeachersInfo(40, 33, 7);
 		if (myFaculty.setFacultyName("Fo****IT"))
@@ -386,8 +385,8 @@ public class Faculty{
 		else
 			myFaculty.display();
 
-		//Метод вывода содержимого объекта класса в консоль
-		System.out.printf("\n----processing by functions----\n");
+	
+		System.out.printf("\n----processing by methods----\n");
 		System.out.printf("Procent of masters on faculty: %.2f\n", myFaculty.getProcentOfMasters());
 		System.out.printf("Procent of doctors on faculty: %.2f\n", myFaculty.getProcentOfDoctors());
 		System.out.printf("Students to teachers quantity: %.2f\n", myFaculty.getStudToTeachRatio());
