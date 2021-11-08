@@ -156,29 +156,24 @@ public class Human
 										return (true);
 									else
 									{		 
-										//проверка на формат входных данных
 										System.out.printf("Enter gender:\n");
-										if (!scanner.hasNextChar())
+										//проверка на формат входных данных
+										if(check.setGender(scanner.next(".").charAt(0)))
 											return (true);
-										else 
+										else
 										{
-											if(check.setGender(scanner.nextChar()))
+											if (check.humanFio.read())
 												return (true);
 											else
 											{
-												if (this.humanFio.read())
-													return (true);
-												else
-												{
-													this.init(
-													check.getId(), 
-													check.getAge(), 
-													check.getHeight(), 
-													check.getWeight(), 
-													check.getGender(), 
-													check.humanFio);
-													return(false);
-												}
+												this.init(
+												check.getId(), 
+												check.getAge(), 
+												check.getHeight(), 
+												check.getWeight(), 
+												check.getGender(), 
+												check.humanFio);
+												return(false);
 											}
 										}
 									}
@@ -203,18 +198,29 @@ public class Human
 
 	public static void main(String[] args)
 	{
-		System.out.printf("--------Fio class--------\n");
-		String familiya = new String("Sidenko");
-		String imya = new String("Matvey");
-		String otchestvo = new String("Evgenievich");
+		System.out.printf("--------Human class--------\n");
+		Fio myFio = new Fio();//mentioned
+		String familiya = new String("Sidenko");//mentioned
+		String imya = new String("Matvey");//mentioned
+		String otchestvo = new String("Evgenievich");//mentioned
+		myFio.init(familiya, imya, otchestvo);//mentioned
 	
-	
-		System.out.printf("------Init method-------\n");
-		Fio myFio = new Fio();
+		System.out.printf("------init method-------\n");
 		Human myHuman = new Human();
-
-		myFio.init(familiya, imya, otchestvo);
 		if(myHuman.init(1984, 45, 193, 90.87, 'M', myFio))
+			System.out.printf("error\n");
+		else
+			myHuman.display();
+
+		System.out.printf("\n------read method------\n");
+		if (myHuman.read())
+			System.out.printf("error\n");
+		else
+			myHuman.display();
+
+		System.out.printf("\n------set methods-------\n");
+		if (myHuman.setId(1999) || myHuman.setAge(27) || myHuman.setHeight(180) ||
+			myHuman.setWeight(80.890) || myHuman.setGender('M'))
 			System.out.printf("error\n");
 		else
 			myHuman.display();
