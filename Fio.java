@@ -1,3 +1,5 @@
+package Prog_lab5;
+
 import java.util.*;
 
 public class Fio
