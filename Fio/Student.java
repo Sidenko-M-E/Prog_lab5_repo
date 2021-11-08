@@ -116,7 +116,7 @@ public class Student
 
 	public boolean read()
 	{
-		//создаём объект класса student для проверки формата входных данных
+		//создаём объект класса Student для проверки формата входных данных
 		Student check = new Student();
 
 		Scanner scanner = new Scanner(System.in);
@@ -126,10 +126,7 @@ public class Student
 		else
 		{
 			if (check.setEduProg(scanner.nextLine()))
-			{
-				System.out.printf("1111");
-					return (true);
-			}		
+				return (true);	
 			else 
 			{
 				System.out.printf("Enter group:\n");
