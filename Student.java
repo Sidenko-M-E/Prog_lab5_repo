@@ -184,35 +184,4 @@ public class Student
 		System.out.printf("faculty name: %s\n", facultyName);
 		studentHuman.display();
 	}
-
-
-	public static void main(String[] args)
-	{
-		Fio myFio = new Fio();//mentioned
-		myFio.init("Sidenko", "Matvey", "Evgenievich");//mentioned
-		Human myHuman = new Human();//mentioned
-		myHuman.init(1984, 45, 193, 90.87, 'M', myFio);//mentioned
-
-		System.out.printf("\n--------Student class--------\n");
-		System.out.printf("-------init method-------\n");
-		Student myStudent = new Student();
-		if (myStudent.init(2, "Bachelor", "PI-03", "FoIT", myHuman))
-			System.out.printf("error\n");
-		else 
-			myStudent.display();
-
-		System.out.printf("\n------read method------\n");
-		if (myStudent.read())
-			System.out.printf("error\n");
-		else
-			myStudent.display();
-
-		System.out.printf("\n------Set methods-------\n");
-		if (myStudent.setCourse(4) || myStudent.setEduProg("Master") || 
-			myStudent.setGroup("CS-91") ||
-			myStudent.setFacultyName("FoIT"))
-			System.out.printf("error\n");
-		else
-			myStudent.display();
-	}
 }

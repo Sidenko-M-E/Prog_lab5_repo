@@ -224,55 +224,40 @@ public class Faculty{
 		//создаём объект класса faculty для проверки формата входных данных
 		Faculty check = new Faculty();
 
-		//создаём буферную строку для проверки формата входных данных
-		String bufString;
-
 		System.out.printf("Enter faculty name:\n");
 		Scanner scanner = new Scanner(System.in);
 		if (!scanner.hasNextLine())
 			return (true);
 		else
 		{
-			bufString = scanner.nextLine();
-			if (check.setFacultyName(bufString))
+			if (check.setFacultyName(scanner.nextLine()))
 				return (true);
 			else 
 			{
-				//буферный переменная типа int 
-				//для проверки формата входных данных 
-				int bufInt;
-
-				//проверка на формат входных данных
 				System.out.printf("Enter quantity of students:\n");
 				if (!scanner.hasNextInt())
 					return (true);
 				else
 				{
-					bufInt = scanner.nextInt();
-					//попытка записи в поле объекта
-					if (check.setQuantityOfStudents(bufInt))
+					if (check.setQuantityOfStudents(scanner.nextInt()))
 						return (true);
 					else
 					{
-						//проверка на формат входных данных
 						System.out.printf("Enter quantity of bachelors:\n");
 						if (!scanner.hasNextInt())
 							return (true);
 						else
 						{
-							bufInt = scanner.nextInt();
-							if (check.setQuantityOfBachelors(bufInt))
+							if (check.setQuantityOfBachelors(scanner.nextInt()))
 								return (true);
 							else
 							{
-								//проверка на формат входных данных
 								System.out.printf("Enter quantity of masters:\n");
 								if (!scanner.hasNextInt())
 									return (true);
 								else
 								{
-									bufInt = scanner.nextInt();
-									if (check.setQuantityOfMasters(bufInt))
+									if (check.setQuantityOfMasters(scanner.nextInt()))
 										return (true);
 									else
 									{
@@ -282,8 +267,7 @@ public class Faculty{
 											return (true);
 										else
 										{
-											bufInt = scanner.nextInt();
-											if (check.setQuantityOfTeachers(bufInt))
+											if (check.setQuantityOfTeachers(scanner.nextInt()))
 												return (true);
 											else
 											{
@@ -293,8 +277,7 @@ public class Faculty{
 													return (true);
 												else
 												{
-													bufInt = scanner.nextInt();
-													if (check.setQuantityOfCandidates(bufInt))
+													if (check.setQuantityOfCandidates(scanner.nextInt()))
 														return (true);
 													else
 													{
@@ -304,8 +287,7 @@ public class Faculty{
 															return (true);
 														else
 														{
-															bufInt = scanner.nextInt();
-															if (check.setQuantityOfDoctors(bufInt))
+															if (check.setQuantityOfDoctors(scanner.nextInt()))
 																return (true);
 															else
 															{
@@ -315,8 +297,7 @@ public class Faculty{
 																	return (true);
 																else
 																{
-																	bufInt = scanner.nextInt();
-																	if (check.setQuantityOfDisciplines(bufInt))
+																	if (check.setQuantityOfDisciplines(scanner.nextInt()))
 																		return (true);
 																	else
 																	{
@@ -359,36 +340,5 @@ public class Faculty{
 	System.out.printf("quantity of doctors: %d\n\n", quantityOfDoctors);
 
 	System.out.printf("quantity of disciplines: %d\n", quantityOfDisciplines);
-   }
-
-   public static void main(String[] args)
-   {
-		System.out.printf("-------init method-------\n");
-		Faculty myFaculty = new Faculty();
-		if (myFaculty.Init("FoIT", 180, 145, 35, 40, 20, 5, 70))
-			System.out.printf("error\n");
-		else
-			myFaculty.display();
-
-
-		System.out.printf("\n------Shortcut-set methods-------\n");
-		myFaculty.setStudentsInfo(300, 270, 30);
-		myFaculty.setTeachersInfo(40, 33, 7);
-		if (myFaculty.setFacultyName("Fo****IT"))
-			System.out.printf("Error\n");
-		else
-			myFaculty.display();
-
-		System.out.printf("\n------read method-------\n");
-		if(myFaculty.read())
-			System.out.printf("error\n");
-		else
-			myFaculty.display();
-
-	
-		System.out.printf("\n----processing by methods----\n");
-		System.out.printf("Procent of masters on faculty: %.2f\n", myFaculty.getProcentOfMasters());
-		System.out.printf("Procent of doctors on faculty: %.2f\n", myFaculty.getProcentOfDoctors());
-		System.out.printf("Students to teachers quantity: %.2f\n", myFaculty.getStudToTeachRatio());
    }
 }

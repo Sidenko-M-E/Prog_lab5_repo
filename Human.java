@@ -195,34 +195,4 @@ public class Human
 		System.out.printf("gender: %s\n", gender);
 		humanFio.display();
 	}
-
-	public static void main(String[] args)
-	{
-		System.out.printf("--------Human class--------\n");
-		Fio myFio = new Fio();//mentioned
-		String familiya = new String("Sidenko");//mentioned
-		String imya = new String("Matvey");//mentioned
-		String otchestvo = new String("Evgenievich");//mentioned
-		myFio.init(familiya, imya, otchestvo);//mentioned
-	
-		System.out.printf("------init method-------\n");
-		Human myHuman = new Human();
-		if(myHuman.init(1984, 45, 193, 90.87, 'M', myFio))
-			System.out.printf("error\n");
-		else
-			myHuman.display();
-
-		System.out.printf("\n------read method------\n");
-		if (myHuman.read())
-			System.out.printf("error\n");
-		else
-			myHuman.display();
-
-		System.out.printf("\n------set methods-------\n");
-		if (myHuman.setId(1999) || myHuman.setAge(27) || myHuman.setHeight(180) ||
-			myHuman.setWeight(80.890) || myHuman.setGender('M'))
-			System.out.printf("error\n");
-		else
-			myHuman.display();
-	}
 }

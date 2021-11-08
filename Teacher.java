@@ -112,13 +112,11 @@ public class Teacher {
 						return (true);
 					else 
 					{
-						//проверка на формат входных данных
 						System.out.printf("Enter working experience:\n");
 						if (!scanner.hasNextInt())
 							return (true);
 						else 
 						{
-							//попытка записи в поле объекта
 							if (check.setWorkExp(scanner.nextInt()))
 								return (true);
 							else
@@ -146,34 +144,5 @@ public class Teacher {
 		System.out.printf("scientific degree: %s\n",degree);
 		System.out.printf("faculty name: %s\n", facultyName);
 		teacherHuman.display();
-	}
-
-	public static void main(String[] args)
-	{
-		Fio myFio = new Fio();//mentioned
-		myFio.init("Sidenko", "Matvey", "Evgenievich");//mentioned
-		Human myHuman = new Human();//mentioned
-		myHuman.init(1984, 45, 193, 90.87, 'M', myFio);//mentioned
-
-		System.out.printf("\n--------Teacher class--------\n");
-		System.out.printf("-------init method-------\n");
-		Teacher myTeacher = new Teacher();
-		if (myTeacher.init(40, "Candidate of Mathematical Sciences", "FoIT", myHuman))
-			System.out.printf("error\n");
-		else
-			myTeacher.display();
-
-		System.out.printf("\n------read method------\n");
-		if (myTeacher.read())
-			System.out.printf("error\n");
-		else
-			myTeacher.display();
-
-		//¬вод полей объекта с помощью методов
-		System.out.printf("\n------Set methods-------\n");
-		if (myTeacher.setWorkExp(30) || myTeacher.setDegree("Doctor of Mathematical Sciences") || myTeacher.setFacultyName("SMTH"))
-			System.out.printf("error\n");
-		else
-			myTeacher.display();
 	}
 }

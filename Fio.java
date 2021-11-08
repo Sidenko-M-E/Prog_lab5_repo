@@ -102,17 +102,13 @@ public class Fio
 		//создаём объект класса Fio для проверки формата входных данных
 		Fio check = new Fio();
 
-		//создаём буферную строку для проверки формата входных данных
-		String bufString;
-
 		System.out.printf("Enter surname:\n");
 		Scanner scanner = new Scanner(System.in);
 		if (!scanner.hasNextLine())
 			return (true);
 		else
 		{
-			bufString = scanner.nextLine();
-			if (check.setSurname(bufString))
+			if (check.setSurname(scanner.nextLine()))
 				return (true);
 			else 
 			{
@@ -121,8 +117,7 @@ public class Fio
 					return (true);
 				else
 				{
-					bufString = scanner.nextLine();
-					if (check.setName(bufString))
+					if (check.setName(scanner.nextLine()))
 						return (true);
 					else 
 					{
@@ -131,8 +126,7 @@ public class Fio
 							return (true);
 						else
 						{
-							bufString = scanner.nextLine();
-							if (check.setPatronymic(bufString))
+							if (check.setPatronymic(scanner.nextLine()))
 								return (true);
 							else 
 							{
@@ -151,36 +145,5 @@ public class Fio
 	public void display()
 	{
 		System.out.printf("FIO: %s %s %s\n", surname, name, patronymic);
-	}
-
-	public static void main(String[] args)
-	{
-		System.out.printf("--------Fio class--------\n");
-		String familiya = new String("Sidenko");
-		String imya = new String("Matvey");
-		String otchestvo = new String("Evgenievich");
-
-
-		System.out.printf("------Init method-------\n");
-		Fio myFio = new Fio();
-	
-		if(myFio.init(familiya, imya, otchestvo))
-			System.out.printf("error\n");
-		else
-			myFio.display();
-
-
-		System.out.printf("\n---Read method---\n");
-		if (!myFio.read())
-			myFio.display();
-		else
-			System.out.printf("error\n");
-
-
-		System.out.printf("\n------Set methods-------\n");
-		if ((myFio.setSurname("Ivanov"))||(myFio.setName("Ivan"))||(myFio.setPatronymic("Ivanovich")))
-			System.out.printf("error\n");
-		else
-			myFio.display();
 	}
 }
