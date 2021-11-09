@@ -3,7 +3,8 @@ package Prog_lab5;
 import java.util.*;
 import java.lang.Math.*;
 
-public class Faculty{
+public class Faculty
+{
 	//Attributes
 	private String facultyName;
 	private int quantityOfStudents;

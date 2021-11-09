@@ -2,7 +2,8 @@ package Prog_lab5;
 
 import java.util.*;
 
-public class Teacher {
+public class Teacher 
+{
 	//Attributes
 	private int workExp;
 	private String degree;
