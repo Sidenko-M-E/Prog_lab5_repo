@@ -27,7 +27,7 @@ public class Teacher
 		if (bufString.isEmpty()) 
 			return (true);
 		
-		String invalidSymbStr = "!@#$%^&*()_+1234567890-=\"№;:?*,./'][{}<>~`";
+		String invalidSymbStr = "!@#$%^&*()_+1234567890-=\";:?*,./'][{}<>~`";
 		char[] invalidSymbols = invalidSymbStr.toCharArray();
 		for (char symb : invalidSymbols) 
 		{
@@ -45,7 +45,7 @@ public class Teacher
 		if (bufString.isEmpty()) 
 			return (true);
 		
-		String invalidSymbStr = "!@#$%^&*()_+1234567890-=\"№;:?*,./'][{}<>~` ";
+		String invalidSymbStr = "!@#$%^&*()_+1234567890-=\";:?*,./'][{}<>~` ";
 		char[] invalidSymbols = invalidSymbStr.toCharArray();
 		for (char symb : invalidSymbols) 
 		{
@@ -75,7 +75,6 @@ public class Teacher
 	
 	public boolean init(int bufWorkExp, String bufDegree, String bufFacultyName, Human bufHuman)
 	{
-		//создаём объект класса human для проверки формата входных данных
 		Teacher check = new Teacher();
 
 		if (check.setWorkExp(bufWorkExp) || check.setDegree(bufDegree) || check.setFacultyName(bufFacultyName))
@@ -93,7 +92,6 @@ public class Teacher
 	
 	public boolean read()
 	{
-		//создаём объект класса Teacher для проверки формата входных данных
 		Teacher check = new Teacher();
 
 		Scanner scanner = new Scanner(System.in);

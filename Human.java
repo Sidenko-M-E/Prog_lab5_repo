@@ -62,7 +62,6 @@ public class Human
 
 	public boolean setGender(char buf)
 	{
-		//сравнение входной строки и допустимых символов
 		if (buf == 'M' || buf == 'F')
 		{
 			gender = buf;
@@ -90,7 +89,6 @@ public class Human
 
 	public boolean init(int bufId, int bufAge, int bufHeight, double bufWeight, char bufGender, Fio bufFio)
 	{
-		//создаём объект класса Human для проверки формата входных данных
 		Human check = new Human();
 
 		if (check.setId(bufId) || check.setAge(bufAge) || check.setHeight(bufHeight) || 
@@ -110,56 +108,46 @@ public class Human
 
 	public boolean read()
 	{
-		//создаём объект класса Human для проверки формата входных данных
 		Human check = new Human();
 
-		//проверка на формат входных данных
 		System.out.printf("Enter id:\n");
 		Scanner scanner = new Scanner(System.in);
 		if (!scanner.hasNextInt())
 			return (true);
 		else 
 		{
-			//попытка записи в поле объекта
 			if (check.setId(scanner.nextInt()))
 				return (true);
 			else
 			{
-				//проверка на формат входных данных
 				System.out.printf("Enter age:\n");
 				if (!scanner.hasNextInt())
 					return (true);
 				else 
 				{
-					//попытка записи в поле объекта
 					if (check.setAge(scanner.nextInt()))
 						return (true);
 					else
 					{
-						//проверка на формат входных данных
 						System.out.printf("Enter height:\n");
 						if (!scanner.hasNextInt())
 							return (true);
 						else 
 						{
-							//попытка записи в поле объекта
 							if (check.setHeight(scanner.nextInt()))
 								return (true);
 							else
 							{
-								//проверка на формат входных данных
 								System.out.printf("Enter weight:\n");
 								if (!scanner.hasNextDouble())
 									return (true);
 								else 
 								{
-									//попытка записи в поле объекта
 									if (check.setWeight(scanner.nextDouble()))
 										return (true);
 									else
 									{		 
 										System.out.printf("Enter gender:\n");
-										//проверка на формат входных данных
 										if(check.setGender(scanner.next(".").charAt(0)))
 											return (true);
 										else

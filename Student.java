@@ -28,7 +28,7 @@ public class Student
 		if (bufString.isEmpty()) 
 			return (true);
 		
-		String invalidSymbStr = "!@#$%^&*()_+1234567890-=\"№;:?*,./'][{}<>~` ";
+		String invalidSymbStr = "!@#$%^&*()_+1234567890-=\";:?*,./'][{}<>~` ";
 		char[] invalidSymbols = invalidSymbStr.toCharArray();
 		for (char symb : invalidSymbols) 
 		{
@@ -45,7 +45,7 @@ public class Student
 		if (bufString.isEmpty()) 
 			return (true);
 		
-		String invalidSymbStr = "!@#$%^&*()_+=\"№;:?*,./'][{}<>~` ";
+		String invalidSymbStr = "!@#$%^&*()_+=\";:?*,./'][{}<>~` ";
 		char[] invalidSymbols = invalidSymbStr.toCharArray();
 		for (char symb : invalidSymbols) 
 		{
@@ -62,7 +62,7 @@ public class Student
 		if (bufString.isEmpty()) 
 			return (true);
 		
-		String invalidSymbStr = "!@#$%^&*()_+1234567890-=\"№;:?*,./'][{}<>~` ";
+		String invalidSymbStr = "!@#$%^&*()_+1234567890-=\";:?*,./'][{}<>~` ";
 		char[] invalidSymbols = invalidSymbStr.toCharArray();
 		for (char symb : invalidSymbols) 
 		{
@@ -98,7 +98,6 @@ public class Student
 
 	public boolean init(int bufCourse, String bufEduProg, String bufGroup, String bufFacultyName, Human bufHuman)
 	{
-		//создаём объект класса Student для проверки формата входных данных
 		Student check = new Student();
 
 		if (check.setCourse(bufCourse) || check.setEduProg(bufEduProg) || check.setGroup(bufGroup) ||
@@ -118,7 +117,6 @@ public class Student
 
 	public boolean read()
 	{
-		//создаём объект класса Student для проверки формата входных данных
 		Student check = new Student();
 
 		Scanner scanner = new Scanner(System.in);
@@ -149,13 +147,11 @@ public class Student
 								return (true);
 							else 
 							{
-								//проверка на формат входных данных
 								System.out.printf("Enter course:\n");
 								if (!scanner.hasNextInt())
 									return (true);
 								else 
 								{
-									//попытка записи в поле объекта
 									if (check.setCourse(scanner.nextInt()))
 										return (true);
 									else

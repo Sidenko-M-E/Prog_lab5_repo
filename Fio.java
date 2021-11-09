@@ -15,7 +15,7 @@ public class Fio
 		if (bufString.isEmpty()) 
 			return (true);
 		
-		String invalidSymbStr = "!@#$%^&*()_+1234567890-=\"№;:?*,./'][{}<>~` ";
+		String invalidSymbStr = "!@#$%^&*()_+1234567890-=\";:?*,./'][{}<>~` ";
 		char[] invalidSymbols = invalidSymbStr.toCharArray();
 		for (char symb : invalidSymbols) 
 		{
@@ -32,7 +32,7 @@ public class Fio
 		if (bufString.isEmpty())
 			return (true);
 		
-		String invalidSymbStr = "!@#$%^&*()_+1234567890-=\"№;:?*,./'][{}<>~` ";
+		String invalidSymbStr = "!@#$%^&*()_+1234567890-=\";:?*,./'][{}<>~` ";
 		char[] invalidSymbols = invalidSymbStr.toCharArray();
 		for (char symb : invalidSymbols)
 		{
@@ -49,7 +49,7 @@ public class Fio
 		if (bufString.isEmpty())
 			return (true);
 			
-		String invalidSymbStr = "!@#$%^&*()_+1234567890-=\"№;:?*,./'][{}<>~` ";
+		String invalidSymbStr = "!@#$%^&*()_+1234567890-=\";:?*,./'][{}<>~` ";
 		char[] invalidSymbols = invalidSymbStr.toCharArray();
 		for (char symb : invalidSymbols)
 		{
@@ -84,10 +84,8 @@ public class Fio
 
 	public boolean init(String bufSurname, String bufName, String bufPatronymic)
 	{
-		//создаём объект класса Fio для проверки формата входных данных
 		Fio check = new Fio();
 
-		//проверка на формат ввода
 		if (check.setSurname(bufSurname) || check.setName(bufName) || check.setPatronymic(bufPatronymic))
 			return (true);
 		else
@@ -101,7 +99,6 @@ public class Fio
 
 	public boolean read()
 	{
-		//создаём объект класса Fio для проверки формата входных данных
 		Fio check = new Fio();
 
 		System.out.printf("Enter surname:\n");

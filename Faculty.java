@@ -23,7 +23,7 @@ public class Faculty
 			return (true);
 		}
 
-		String invalidSymbStr = "!@#$%^&*()_+1234567890-=\"№;:?*,./'][{}<>~` ";
+		String invalidSymbStr = "!@#$%^&*()_+1234567890-=\";:?*,./'][{}<>~` ";
 		char[] invalidSymbols = invalidSymbStr.toCharArray();
 		for (char symb : invalidSymbols) 
 		{
@@ -199,10 +199,8 @@ public class Faculty
 
    public boolean Init(String bufFacultyName, int studentsQuantity, int bachelorsQuantity, int mastersQuantity, int teachersQuantity, int candidatesQuantity, int doctorsQuanity, int discpilinesQuantity)
    {
-		//создаём объект класса faculty для проверки формата входных данных
 		Faculty check = new Faculty();
 	
-		//проверка на формат ввода 
 		if (check.setFacultyName(bufFacultyName) || check.setQuantityOfStudents(studentsQuantity) ||
 			check.setQuantityOfBachelors(bachelorsQuantity) || check.setQuantityOfMasters(mastersQuantity) ||
 			check.setQuantityOfTeachers(teachersQuantity) || check.setQuantityOfCandidates(candidatesQuantity) ||
@@ -224,7 +222,6 @@ public class Faculty
 
    public boolean read()
    {
-		//создаём объект класса faculty для проверки формата входных данных
 		Faculty check = new Faculty();
 
 		System.out.printf("Enter faculty name:\n");
@@ -264,7 +261,6 @@ public class Faculty
 										return (true);
 									else
 									{
-										//проверка на формат входных данных
 										System.out.printf("Enter quantity of teachers:\n");
 										if (!scanner.hasNextInt())
 											return (true);
@@ -274,7 +270,6 @@ public class Faculty
 												return (true);
 											else
 											{
-												//проверка на формат входных данных
 												System.out.printf("Enter quantity of candidates:\n");
 												if (!scanner.hasNextInt())
 													return (true);
@@ -284,7 +279,6 @@ public class Faculty
 														return (true);
 													else
 													{
-														//проверка на формат входных данных
 														System.out.printf("Enter quantity of doctors:\n");
 														if (!scanner.hasNextInt())
 															return (true);
@@ -294,7 +288,6 @@ public class Faculty
 																return (true);
 															else
 															{
-																//проверка на формат входных данных
 																System.out.printf("Enter quantity of disciplines:\n");
 																if (!scanner.hasNextInt())
 																	return (true);
